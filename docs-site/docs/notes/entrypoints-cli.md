@@ -2,8 +2,8 @@
 
 ## 文件基本信息
 - **路径**: `src/entrypoints/cli.tsx`
-- **行数**: 302 行
-- **角色**: CLI 的 TypeScript 入口文件，是从 `bin/claude-haha` 调用的第一个 TS 文件，负责快速路径分发和主流程引导
+- **行数**: 271 行
+- **角色**: CLI 的 TypeScript 入口文件，是整个应用的真正入口，负责快速路径分发和主流程引导
 
 ## 核心功能
 
@@ -83,7 +83,7 @@ if (feature('ABLATION_BASELINE') && process.env.CLAUDE_CODE_ABLATION_BASELINE) {
 ## 数据流
 
 ```
-bin/claude-haha
+ccb (dist/cli.js) 或 bun run scripts/dev.ts
   └─> src/entrypoints/cli.tsx
        ├─ --version → 直接输出版本号退出
        ├─ --daemon-worker → daemon/workerRegistry.js
@@ -95,7 +95,7 @@ bin/claude-haha
 ```
 
 ## 与其他模块的关系
-- **上游**: `bin/claude-haha` 通过 `exec bun` 调用
+- **上游**: `dist/cli.js`（构建后）或 `scripts/dev.ts`（开发时）
 - **核心下游**: `src/main.tsx` —— 完整 CLI 功能的入口
 - **快速路径下游**: 
   - `bridge/bridgeMain.js` —— 远程控制/桥接模式

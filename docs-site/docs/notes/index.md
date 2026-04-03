@@ -1,6 +1,6 @@
 # 阅读笔记
 
-本节包含 Claude Code 源码的逐文件阅读笔记。每篇笔记针对一个或一组相关源文件，记录关键实现细节、设计思路、个人理解以及值得关注的代码片段。
+本节包含 Claude Code Best (ccb) 源码的逐文件阅读笔记。每篇笔记针对一个或一组相关源文件，记录关键实现细节、设计思路和值得关注的代码片段。
 
 ---
 
@@ -15,72 +15,67 @@
     - **核心逻辑** — 关键函数与数据结构的分析
     - **设计亮点** — 值得学习的设计模式或技巧
     - **关联文件** — 与哪些其他文件有依赖关系
-    - **疑问与思考** — 阅读过程中产生的问题与思考
 
 ---
 
 ## 笔记索引
 
-按源码目录结构组织，方便根据文件路径快速查找对应笔记。
-
-### 入口与启动
+### 入口与启动（已完成）
 
 | 文件 | 笔记 | 状态 |
 | --- | --- | --- |
-| `src/main.tsx` | — | :material-circle-outline: 待编写 |
-| `src/entrypoints/` | — | :material-circle-outline: 待编写 |
-| `src/setup.ts` | — | :material-circle-outline: 待编写 |
+| CLI 入口 (ccb) | [CLI 入口](bin-claude-haha.md) | :material-check-circle: 已完成 |
+| `preload.ts` | [预加载脚本](preload.md) | :material-check-circle: 已完成 |
+| `src/entrypoints/cli.tsx` | [CLI 分发器](entrypoints-cli.md) | :material-check-circle: 已完成 |
+| `src/main.tsx` | [Commander.js CLI 定义](main.md) | :material-check-circle: 已完成 |
+| `src/setup.ts` | [一次性初始化](setup.md) | :material-check-circle: 已完成 |
 
-### 命令与工具
-
-| 文件 | 笔记 | 状态 |
-| --- | --- | --- |
-| `src/commands.ts` | — | :material-circle-outline: 待编写 |
-| `src/tools.ts` | — | :material-circle-outline: 待编写 |
-| `src/Tool.ts` | — | :material-circle-outline: 待编写 |
-| `src/tools/` | — | :material-circle-outline: 待编写 |
-
-### 查询与服务
+### 核心引擎（已完成）
 
 | 文件 | 笔记 | 状态 |
 | --- | --- | --- |
-| `src/query.ts` | — | :material-circle-outline: 待编写 |
-| `src/QueryEngine.ts` | — | :material-circle-outline: 待编写 |
-| `src/services/` | — | :material-circle-outline: 待编写 |
+| `src/query.ts` | [AsyncGenerator 主循环](query.md) | :material-check-circle: 已完成 |
+| `src/QueryEngine.ts` | [高层编排器](QueryEngine.md) | :material-check-circle: 已完成 |
+| `src/context.ts` | [系统上下文构建](context.md) | :material-check-circle: 已完成 |
 
-### UI 与状态
-
-| 文件 | 笔记 | 状态 |
-| --- | --- | --- |
-| `src/ink.ts` | — | :material-circle-outline: 待编写 |
-| `src/components/` | — | :material-circle-outline: 待编写 |
-| `src/hooks/` | — | :material-circle-outline: 待编写 |
-| `src/state/` | — | :material-circle-outline: 待编写 |
-
-### 上下文与协作
+### 工具系统（已完成）
 
 | 文件 | 笔记 | 状态 |
 | --- | --- | --- |
-| `src/context.ts` | — | :material-circle-outline: 待编写 |
-| `src/context/` | — | :material-circle-outline: 待编写 |
+| `src/Tool.ts` | [Tool 接口 + buildTool()](Tool.md) | :material-check-circle: 已完成 |
+| `src/tools.ts` | [工具注册表](tools.md) | :material-check-circle: 已完成 |
+
+### 桥接系统（已完成）
+
+| 文件 | 笔记 | 状态 |
+| --- | --- | --- |
+| `src/bridge/bridgeMain.ts` | [独立桥接入口](bridge-bridgeMain.md) | :material-check-circle: 已完成 |
+| `src/bridge/bridgeApi.ts` | [REST API 客户端](bridge-bridgeApi.md) | :material-check-circle: 已完成 |
+| `src/bridge/bridgeMessaging.ts` | [消息路由](bridge-bridgeMessaging.md) | :material-check-circle: 已完成 |
+| `src/bridge/replBridge.ts` | [REPL 内嵌桥接](bridge-replBridge.md) | :material-check-circle: 已完成 |
+
+### 工具函数（已完成）
+
+| 文件 | 笔记 | 状态 |
+| --- | --- | --- |
+| `src/utils/teammateMailbox.ts` | [团队通信邮箱](utils-teammateMailbox.md) | :material-check-circle: 已完成 |
+| `src/utils/cronTasks.ts` | [定时任务定义](utils-cronTasks.md) | :material-check-circle: 已完成 |
+| `src/utils/cronScheduler.ts` | [Cron 调度器](utils-cronScheduler.md) | :material-check-circle: 已完成 |
+
+### 待编写
+
+| 文件 | 笔记 | 状态 |
+| --- | --- | --- |
+| `src/screens/REPL.tsx` | — | :material-circle-outline: 待编写 |
+| `src/services/api/claude.ts` | — | :material-circle-outline: 待编写 |
 | `src/coordinator/` | — | :material-circle-outline: 待编写 |
-
-### 扩展机制
-
-| 文件 | 笔记 | 状态 |
-| --- | --- | --- |
 | `src/plugins/` | — | :material-circle-outline: 待编写 |
 | `src/skills/` | — | :material-circle-outline: 待编写 |
-| `src/Task.ts` | — | :material-circle-outline: 待编写 |
-
-### 其他
-
-| 文件 | 笔记 | 状态 |
-| --- | --- | --- |
-| `src/utils/` | — | :material-circle-outline: 待编写 |
-| `src/types/` | — | :material-circle-outline: 待编写 |
-| `src/schemas/` | — | :material-circle-outline: 待编写 |
-| `src/cost-tracker.ts` | — | :material-circle-outline: 待编写 |
+| `src/voice/` | — | :material-circle-outline: 待编写 |
+| `src/daemon/` | — | :material-circle-outline: 待编写 |
+| `src/kairos/` | — | :material-circle-outline: 待编写 |
+| `src/uds/` | — | :material-circle-outline: 待编写 |
+| `packages/` | — | :material-circle-outline: 待编写 |
 
 ---
 

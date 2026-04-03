@@ -129,7 +129,7 @@ Fail-Closed vs Fail-Open：
 
 ```
 初级：理解启动流程
-  → 读 bin/claude-haha → cli.tsx → setup.ts → main.tsx
+  → 读 entrypoints/cli.tsx → main.tsx → setup.ts → replLauncher.tsx
   → 大约 2 小时
 
 中级：理解对话引擎
@@ -178,8 +178,8 @@ Fail-Closed vs Fail-Open：
                   │               │               │
           ┌───────▼──────┐ ┌─────▼──────┐ ┌──────▼─────────┐
           │  UDS Inbox   │ │  Teleport  │ │   Server       │
-          │ (跨会话通信)  │ │  (上下文迁移)│ │(claude-haha-   │
-          │              │ │  Local     │ │  server)       │
+          │ (跨会话通信)  │ │  (上下文迁移)│ │(claude-code-   │
+          │              │ │  Local     │ │  best-server)  │
           │  NEW         │ │  NEW       │ │  NEW           │
           └──────────────┘ └────────────┘ └────────────────┘
 ```

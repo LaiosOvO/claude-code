@@ -1,13 +1,12 @@
-site_name: Claude Code 源码学习站
-site_description: Claude Code 源码深度解读与学习笔记
+site_name: Claude Code Best 源码学习站
+site_description: Claude Code Best (ccb) 源码深度解读与学习笔记
 site_url: ""
-repo_url: https://github.com/anthropics/claude-code
-repo_name: claude-code-haha
+repo_url: https://github.com/LaiosOvO/claude-code
+repo_name: claude-code
 
 theme:
   name: material
   language: zh
-  # custom_dir: docs/overrides
   font:
     text: Noto Sans SC
     code: JetBrains Mono
@@ -52,11 +51,8 @@ plugins:
       lang:
         - zh
         - en
-  # - minify:
-  #     minify_html: true
 
 markdown_extensions:
-  # Python Markdown 基础扩展
   - abbr
   - admonition
   - attr_list
@@ -69,8 +65,6 @@ markdown_extensions:
       slugify: !!python/object/apply:pymdownx.slugs.slugify
         kwds:
           case: lower
-
-  # PyMdown Extensions
   - pymdownx.arithmatex:
       generic: true
   - pymdownx.betterem:
@@ -105,7 +99,7 @@ markdown_extensions:
 extra:
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/anthropics/claude-code
+      link: https://github.com/LaiosOvO/claude-code
   generator: false
 
 extra_css:
@@ -137,7 +131,7 @@ nav:
   - 阅读笔记:
     - notes/index.md
     - 入口文件:
-      - bin/claude-haha: notes/bin-claude-haha.md
+      - CLI 入口: notes/bin-claude-haha.md
       - preload.ts: notes/preload.md
       - entrypoints/cli.tsx: notes/entrypoints-cli.md
     - 核心文件:

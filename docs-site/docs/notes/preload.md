@@ -56,7 +56,7 @@ Object.assign(globalThis, {
 
 ## 与其他模块的关系
 - **依赖**: 仅依赖 `process.env`（环境变量）
-- **被依赖**: 被 `bin/claude-haha` 通过 Bun 的 `--env-file=.env` 间接加载，或通过 Bun 的 preload 机制加载
+- **被依赖**: 被 `scripts/dev.ts` 通过 Bun 的 `-d` flag 注入 MACRO defines，或通过 Bun 的 preload 机制加载
 - **影响**: 整个项目中所有引用 `MACRO.xxx` 的地方都依赖此文件在本地开发时正确设置
 
 ## 设计亮点与思考
