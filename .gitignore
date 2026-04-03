@@ -7,4 +7,4 @@ coverage
 .idea
 .vscode
 *.suo
-*.lock
+*.lockdocs-site/site/
