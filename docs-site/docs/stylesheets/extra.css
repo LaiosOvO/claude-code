@@ -1,0 +1,38 @@
+/* 卡片网格布局 */
+.md-typeset .grid.cards > ul > li {
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 0.4rem;
+  transition: border-color 0.25s, box-shadow 0.25s;
+}
+
+.md-typeset .grid.cards > ul > li:hover {
+  border-color: var(--md-primary-fg-color);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* 首页标题样式 */
+.md-typeset h1 {
+  font-weight: 700;
+}
+
+/* 代码块优化 */
+.md-typeset code {
+  font-size: 0.85em;
+}
+
+/* Mermaid 图表居中 */
+.md-typeset .mermaid {
+  text-align: center;
+  margin: 1.5em 0;
+}
+
+/* 表格样式增强 */
+.md-typeset table:not([class]) th {
+  background-color: var(--md-primary-fg-color);
+  color: var(--md-primary-bg-color);
+  font-weight: 600;
+}
+
+[data-md-color-scheme="slate"] .md-typeset table:not([class]) th {
+  background-color: var(--md-primary-fg-color--dark);
+}

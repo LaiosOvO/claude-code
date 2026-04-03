@@ -1,0 +1,162 @@
+site_name: Claude Code 源码学习站
+site_description: Claude Code 源码深度解读与学习笔记
+site_url: ""
+repo_url: https://github.com/anthropics/claude-code
+repo_name: claude-code-haha
+
+theme:
+  name: material
+  language: zh
+  # custom_dir: docs/overrides
+  font:
+    text: Noto Sans SC
+    code: JetBrains Mono
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: teal
+      accent: deep purple
+      toggle:
+        icon: material/brightness-7
+        name: 切换到深色模式
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: teal
+      accent: deep purple
+      toggle:
+        icon: material/brightness-4
+        name: 切换到浅色模式
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - navigation.path
+    - navigation.top
+    - navigation.indexes
+    - search.suggest
+    - search.highlight
+    - search.share
+    - content.code.copy
+    - content.code.annotate
+    - content.tabs.link
+    - toc.follow
+  icon:
+    repo: fontawesome/brands/github
+    logo: material/code-braces
+
+plugins:
+  - search:
+      separator: '[\s\u200b\-]'
+      jieba_dict: null
+      lang:
+        - zh
+        - en
+  # - minify:
+  #     minify_html: true
+
+markdown_extensions:
+  # Python Markdown 基础扩展
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
+
+  # PyMdown Extensions
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink:
+      repo_url_shorthand: true
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.snippets
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/anthropics/claude-code
+  generator: false
+
+extra_css:
+  - stylesheets/extra.css
+
+nav:
+  - 首页: index.md
+  - 自顶向下教程:
+    - tutorial/top-down/index.md
+    - 第一章 全局架构鸟瞰: tutorial/top-down/01-architecture-overview.md
+    - 第二章 启动链路详解: tutorial/top-down/02-bootstrap-chain.md
+    - 第三章 对话引擎: tutorial/top-down/03-query-engine.md
+    - 第四章 工具系统: tutorial/top-down/04-tool-system.md
+    - 第五章 终端UI系统: tutorial/top-down/05-terminal-ui.md
+  - 自底向上教程:
+    - tutorial/bottom-up/index.md
+    - 第一章 基础原语: tutorial/bottom-up/01-fundamentals.md
+    - 第二章 核心抽象: tutorial/bottom-up/02-core-abstractions.md
+    - 第三章 模块组装: tutorial/bottom-up/03-module-assembly.md
+    - 第四章 系统集成: tutorial/bottom-up/04-system-integration.md
+    - 第五章 全景视角: tutorial/bottom-up/05-full-picture.md
+  - 模块说明:
+    - modules/index.md
+    - 入口系统: modules/01-entrypoints.md
+    - 对话引擎: modules/02-query-engine.md
+    - 工具系统: modules/03-tool-system.md
+    - 远程桥接: modules/04-bridge.md
+    - 状态管理: modules/05-state.md
+  - 阅读笔记:
+    - notes/index.md
+    - 入口文件:
+      - bin/claude-haha: notes/bin-claude-haha.md
+      - preload.ts: notes/preload.md
+      - entrypoints/cli.tsx: notes/entrypoints-cli.md
+    - 核心文件:
+      - main.tsx: notes/main.md
+      - setup.ts: notes/setup.md
+      - query.ts: notes/query.md
+      - QueryEngine.ts: notes/QueryEngine.md
+      - context.ts: notes/context.md
+    - 工具系统:
+      - Tool.ts: notes/Tool.md
+      - tools.ts: notes/tools.md
+    - 桥接系统:
+      - bridgeMain.ts: notes/bridge-bridgeMain.md
+      - bridgeApi.ts: notes/bridge-bridgeApi.md
+      - bridgeMessaging.ts: notes/bridge-bridgeMessaging.md
+      - replBridge.ts: notes/bridge-replBridge.md
+    - 工具函数:
+      - teammateMailbox.ts: notes/utils-teammateMailbox.md
+      - cronTasks.ts: notes/utils-cronTasks.md
+      - cronScheduler.ts: notes/utils-cronScheduler.md
+  - 架构文档:
+    - architecture/index.md
