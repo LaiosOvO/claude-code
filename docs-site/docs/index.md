@@ -102,10 +102,10 @@ hide:
 src/
 ├── entrypoints/        # 入口文件（cli.tsx、init.ts、mcp.ts、SDK）
 ├── main.tsx            # Commander.js CLI 主程序（4680 行）
-├── query.ts            # AsyncGenerator 查询主循环（1732 行）
-├── QueryEngine.ts      # 会话管理编排器（1320 行）
-├── Tool.ts             # 工具接口 + buildTool()（792 行）
-├── tools.ts            # 工具注册表 + assembleToolPool()（387 行）
+├── query.ts            # AsyncGenerator 查询主循环（1865 行）
+├── QueryEngine.ts      # 会话管理编排器（1450 行）
+├── Tool.ts             # 工具接口 + buildTool()（978 行）
+├── tools.ts            # 工具注册表 + assembleToolPool()（469 行）
 ├── tools/              # 58+ 工具实现目录
 ├── bridge/             # 远程桥接系统（34 文件，约 13000 行）
 ├── daemon/             # 后台守护进程（supervisor + workers）

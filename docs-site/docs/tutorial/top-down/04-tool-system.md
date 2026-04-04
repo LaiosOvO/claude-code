@@ -16,7 +16,7 @@ Claude 的能力 = 语言理解 + 工具调用
            协调 Agent      搜索网络
 ```
 
-## 4.2 Tool 类型定义：src/Tool.ts (792行)
+## 4.2 Tool 类型定义：src/Tool.ts (978行)
 
 Tool.ts 定义了工具的完整接口。核心类型是 `ToolUseContext` — 工具执行时可以访问的所有上下文：
 
@@ -236,7 +236,7 @@ export const MyTool = buildTool({
 | ListMcpResources | 列出 MCP 服务器资源 | yes | yes |
 | ReadMcpResource | 读取 MCP 资源 | yes | yes |
 
-## 4.6 工具注册表：src/tools.ts (387行)
+## 4.6 工具注册表：src/tools.ts (469行)
 
 tools.ts 是工具系统的注册中心，提供三层 API：
 

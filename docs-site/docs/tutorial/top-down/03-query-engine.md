@@ -12,7 +12,7 @@ ccb 的对话引擎分为两层：
         │  用户输入 prompt
         ▼
    ┌──────────────────┐
-   │  QueryEngine.ts   │  ← src/QueryEngine.ts (1320行) — 高层编排器
+   │  QueryEngine.ts   │  ← src/QueryEngine.ts (1450行) — 高层编排器
    │  会话级状态管理     │     管理多次 submitMessage 调用
    │  系统提示词构建     │     维护消息历史和配置
    │  命令处理          │
@@ -20,7 +20,7 @@ ccb 的对话引擎分为两层：
             │  调用
             ▼
    ┌──────────────────┐
-   │  query.ts         │  ← src/query.ts (1732行) — AsyncGenerator 主循环
+   │  query.ts         │  ← src/query.ts (1865行) — AsyncGenerator 主循环
    │  Agent Loop 核心   │     单次对话轮的完整循环
    │  工具执行编排       │     流式响应 + 工具调用 + 重试
    │  Token 预算管理    │
@@ -159,7 +159,7 @@ export async function* query(
 
 ## 3.6 QueryEngine.ts — 高层编排器
 
-QueryEngine 是 1320 行的类，管理整个会话的生命周期：
+QueryEngine 是 1450 行的类，管理整个会话的生命周期：
 
 ```typescript
 // 简化的 QueryEngine 核心结构
@@ -221,7 +221,7 @@ class QueryEngine {
 
 ## 3.7 系统提示词的构建
 
-系统提示词是 Claude 的「操作手册」，由 `context.ts` (189行) 和相关模块构建：
+系统提示词是 Claude 的「操作手册」，由 `context.ts` (260行) 和相关模块构建：
 
 ```
 系统提示词 =

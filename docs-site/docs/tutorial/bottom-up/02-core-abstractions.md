@@ -30,7 +30,7 @@
 
 ## 2.2 Tool 的完整接口
 
-**文件**: `src/Tool.ts` (792行)
+**文件**: `src/Tool.ts (978行))
 
 Tool 是 Claude 与外部世界交互的原子能力。ccb 定义了一个完整的 `Tool` 类型，包含 30+ 个方法/属性：
 
@@ -78,7 +78,7 @@ export type Tool<
 
 ## 2.3 buildTool()：安全默认值工厂
 
-**文件**: `src/Tool.ts` (第757-792行)
+**文件**: `src/Tool.ts (978行))
 
 ```typescript
 // 安全默认值（fail-closed）

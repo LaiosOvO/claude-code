@@ -17,7 +17,7 @@
 第四层 -- 系统集成层 -------------------------------------------------------
    QueryEngine     |  AppStateStore  |  SessionManager |  Coordinator
    -- AI Agent 循环 |  -- 全局状态管理 |  -- 会话生命周期 |  -- 多Agent协调
-   (1320行)        |                 |                 |
+   (1450行)        |                 |                 |
                    |                 |                 |
 第三层 -- 模块组装层 -------------------------------------------------------
    ToolPool       |  CommandSystem  |  MCP Client   |  Services
@@ -52,7 +52,7 @@
   Observable  -> 需要 RxJS，学习成本高
   AsyncGen    -> 原生支持，流式，可组合，可背压 ✓
 
-query.ts 的 1732 行核心就是一个巨大的 async function*
+query.ts 的 1865 行核心就是一个巨大的 async function*
 ```
 
 ### 为什么用 React 写终端 UI？
@@ -100,14 +100,14 @@ Fail-Open  vs  Fail-Closed：
   | main.tsx                | 4680行 |
   | bridge/bridgeMain.ts    | 2999行 |
   | bridge/replBridge.ts    | 2406行 |
-  | query.ts                | 1732行 |
-  | QueryEngine.ts          | 1320行 |
-  | Tool.ts                 |  792行 |
+  | query.ts (1865行) |
+  | QueryEngine.ts          | 1450行 |
+  | Tool.ts (978行) |
   | services/voice.ts       |  525行 |
-  | setup.ts                |  477行 |
-  | tools.ts                |  387行 |
+  | setup.ts                |  569行 |
+  | tools.ts                |  469行 |
   | bridge/localBridge.ts   |  344行 |
-  | context.ts              |  189行 |
+  | context.ts              |  260行 |
   +-------------------------+--------+
 
   目录规模：
@@ -163,7 +163,7 @@ Fail-Open  vs  Fail-Closed：
   +-------v------+            +--------v------+           +--------v-------+
   | QueryEngine  |            |   Daemon      |           |   Bridge       |
   | (对话引擎)    |            |  (���护进程)    |           |  (远程控制)     |
-  | 1320行       |            |  8个文件       |           |  30+文件       |
+  | 1450行       |            |  8个文件       |           |  30+文件       |
   +--------------+            +-------+-------+           |  +localBridge  |
                                       |                   +----------------+
                               +-------v-------+
@@ -228,7 +228,7 @@ Fail-Open  vs  Fail-Closed：
 每个 Tool 的 逻辑/提示词/UI 各自独立文件。不同受众（引擎/AI/用户）各取所需。
 
 ### 模式 4：AsyncGenerator 驱动
-`query.ts` (1732行) 的核心就是一个 `async function*`。整个查询循环天���支持流式和背压。
+`query.ts (1865行)) 的核心就是一个 `async function*`。整个查询循环天���支持流式和背压。
 
 ### 模式 5：传输抽象
 Bridge 系统不管底层是 WebSocket、SSE 还是 HTTP，上层用统一的 `ReplBridgeTransport` 接口。LocalBridge 和远程 Bridge 共享 `bridgeMessaging.ts` 的消息处理逻辑。

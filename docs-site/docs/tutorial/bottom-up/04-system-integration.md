@@ -16,7 +16,7 @@ src/entrypoints/cli.tsx      <- CLI 入口
 src/entrypoints/init.ts      <- 初始化（配置、认证、MCP 连接）
     |
     v
-src/setup.ts (477行)         <- 环境准备（Git、CLAUDE.md、权限）
+src/setup.ts (569行)         <- 环境准备（Git、CLAUDE.md、权限）
     |
     v
 src/main.tsx (4680行)        <- 主逻辑分发
@@ -72,14 +72,14 @@ v [REPL.tsx: 提交给 QueryEngine]
 |
 | queryEngine.submitMessage("帮我读取 package.json 并添加一个 test script")
 |
-v [QueryEngine.ts (1320行): 组装系统提示词]
+v [QueryEngine.ts (1450行): 组装系统提示词]
 |
 | systemPrompt = fetchSystemPromptParts()
 |   = 核心提示 + 工具描述(58+ 工具) + CLAUDE.md + Git状态 + 日期
 |   + memdir 记忆文件 + 插件上下文
 | messages = [...history, { role: "user", content: "帮我读取..." }]
 |
-v [query.ts (1732行): 调用 Claude API -- 流式]
+v [query.ts (1865行): 调用 Claude API -- 流式]
 |
 | POST /v1/messages { model, system, messages, tools, stream: true }
 |

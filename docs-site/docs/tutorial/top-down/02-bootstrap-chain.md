@@ -10,13 +10,13 @@ ccb 的启动链路由四个关键文件串联而成：
 ccb 命令
   │
   ▼
-entrypoints/cli.tsx (271行)  ← 入口分发器
+entrypoints/cli.tsx (342行)  ← 入口分发器
   │
   ▼
 entrypoints/init.ts          ← 一次性全局初始化
   │
   ▼
-setup.ts (477行)             ← 会话级初始化
+setup.ts (569行)             ← 会话级初始化
   │
   ▼
 main.tsx (4680行)            ← Commander.js CLI 定义 + run() action
@@ -217,7 +217,7 @@ export const init = memoize(async (): Promise<void> => {
 
 ## 2.4 会话级初始化：setup.ts
 
-`setup()` 是 477 行的异步函数，每次会话启动时执行：
+`setup()` 是 569 行的异步函数，每次会话启动时执行：
 
 ```typescript
 export async function setup(
