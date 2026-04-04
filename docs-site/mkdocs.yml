@@ -107,6 +107,7 @@ extra_css:
 
 nav:
   - 首页: index.md
+  - 启动流程详解: startup-flow.md
   - 自顶向下教程:
     - tutorial/top-down/index.md
     - 第一章 全局架构鸟瞰: tutorial/top-down/01-architecture-overview.md
@@ -130,24 +131,63 @@ nav:
     - 状态管理: modules/05-state.md
   - 阅读笔记:
     - notes/index.md
-    - 入口文件:
+    - 入口与启动:
       - CLI 入口: notes/bin-claude-haha.md
       - preload.ts: notes/preload.md
       - entrypoints/cli.tsx: notes/entrypoints-cli.md
-    - 核心文件:
+      - entrypoints 模块: notes/entrypoints-module.md
+      - bootstrap 模块: notes/bootstrap-module.md
+    - 核心引擎:
       - main.tsx: notes/main.md
       - setup.ts: notes/setup.md
       - query.ts: notes/query.md
+      - query 子目录: notes/query-dir.md
       - QueryEngine.ts: notes/QueryEngine.md
       - context.ts: notes/context.md
+      - context 子目录: notes/context-dir.md
     - 工具系统:
       - Tool.ts: notes/Tool.md
       - tools.ts: notes/tools.md
-    - 桥接系统:
+      - commands 模块: notes/commands.md
+      - skills 模块: notes/skills-module.md
+    - UI 层:
+      - screens 模块: notes/screens.md
+      - ink 模块: notes/ink.md
+      - components 模块: notes/components.md
+      - hooks 模块: notes/hooks.md
+      - keybindings 模块: notes/keybindings-module.md
+      - vim 模块: notes/vim-module.md
+    - 状态与类型:
+      - state 模块: notes/state-module.md
+      - types 模块: notes/types-module.md
+      - constants 模块: notes/constants-module.md
+      - schemas 模块: notes/schemas-module.md
+    - 服务层:
+      - services 模块: notes/services.md
+      - cli 模块: notes/cli-module.md
+      - server 模块: notes/server-module.md
+      - tasks 模块: notes/tasks-module.md
+      - migrations 模块: notes/migrations-module.md
+    - 桥接与远程:
+      - bridge 模块: notes/bridge-module.md
       - bridgeMain.ts: notes/bridge-bridgeMain.md
       - bridgeApi.ts: notes/bridge-bridgeApi.md
       - bridgeMessaging.ts: notes/bridge-bridgeMessaging.md
       - replBridge.ts: notes/bridge-replBridge.md
+      - remote 模块: notes/remote-module.md
+      - ssh 模块: notes/ssh-module.md
+    - 新增模块:
+      - daemon 模块: notes/daemon-module.md
+      - kairos 模块: notes/kairos-module.md
+      - uds 模块: notes/uds-module.md
+      - teleport 模块: notes/teleport-module.md
+      - coordinator 模块: notes/coordinator-module.md
+      - assistant 模块: notes/assistant-module.md
+    - 其他:
+      - buddy 模块: notes/buddy-module.md
+      - memdir 模块: notes/memdir.md
+      - plugins 模块: notes/plugins-module.md
+      - stub 模块合集: notes/stub-modules.md
     - 工具函数:
       - teammateMailbox.ts: notes/utils-teammateMailbox.md
       - cronTasks.ts: notes/utils-cronTasks.md
